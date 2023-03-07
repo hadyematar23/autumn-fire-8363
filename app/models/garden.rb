@@ -8,7 +8,7 @@ class Garden < ApplicationRecord
   # end
 
   #new method for extension- read online about using the Arel.sql to write direct SQL code in new versions of rails, still prevents against injection attacks
-  def unique_plants 
+  def unique_plants
     self.plants.where('days_to_harvest < ?', 100)
       .group(:id)
       .order(Arel.sql('COUNT(*) DESC'))

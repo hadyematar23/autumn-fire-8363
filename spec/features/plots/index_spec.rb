@@ -70,15 +70,22 @@ end
         expect(page).to have_content(@plant1.name)
       end
 
+      within("div#plot_#{@plot1.id}") do
+        expect(page).to have_content(@plant1.name)
+      end
+
       within("div#plot_#{@plot1.id}_plant_#{@plant1.id}") do 
+        expect(page).to have_content(@plant1.name)
         expect(page).to have_link("Remove #{@plant1.name} from #{@plot1.number}", href: "/plots/#{@plot1.id}/plants/#{@plant1.id}" )
       end
 
       within("div#plot_#{@plot1.id}_plant_#{@plant2.id}") do 
+        expect(page).to have_content(@plant2.name)
         expect(page).to have_link("Remove #{@plant2.name} from #{@plot1.number}", href: "/plots/#{@plot1.id}/plants/#{@plant2.id}" )
       end
 
       within("div#plot_#{@plot2.id}_plant_#{@plant4.id}") do 
+        expect(page).to have_content(@plant4.name)
         expect(page).to have_link("Remove #{@plant4.name} from #{@plot2.number}", href: "/plots/#{@plot2.id}/plants/#{@plant4.id}" )
       end
 

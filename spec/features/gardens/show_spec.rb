@@ -39,7 +39,7 @@ end
 
      end
 
-     it "the list of plants is sorted by the number of times that the plant appears in any of the garden's plants" do 
+     it "the list of plants is sorted by the number of times that the plant appears in any of the garden's plots" do 
       
       @g3 = Garden.create!(name: "Spirit", organic: false)
 
