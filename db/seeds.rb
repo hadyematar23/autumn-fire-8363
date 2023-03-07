@@ -20,3 +20,4 @@
 @PlotPlant1 = PlotPlant.create!(plant_id: @plant1.id, plot_id: @plot1.id)
 @PlotPlant2 = PlotPlant.create!(plant_id: @plant2.id, plot_id: @plot1.id)
 @PlotPlant3 = PlotPlant.create!(plant_id: @plant4.id, plot_id: @plot2.id)
+@PlotPlant4 = PlotPlant.create!(plant_id: @plant1.id, plot_id: @plot2.id)

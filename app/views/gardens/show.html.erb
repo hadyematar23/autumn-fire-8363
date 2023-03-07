@@ -1,0 +1,5 @@
+<h2> Show page for <%=@garden.name%></h2>
+
+<%@unique.each do |plant|%>
+  <p><%=plant.name%></p>
+<%end%>

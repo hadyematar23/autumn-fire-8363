@@ -80,6 +80,7 @@ end
 
       click_link("Remove #{@plant1.name} from #{@plot1.number}")
 
+      expect(current_path).to eq("/plots")
 
       within("div#plot_#{@plot2.id}") do
         expect(page).to have_content(@plant1.name)
