@@ -38,6 +38,26 @@ end
       expect(page).to have_selector('p', text: @plant2.name, count: 1)
 
      end
+
+     it "the list of plants is sorted by the number of times that the plant appears in any of the garden's plants" do 
+      
+      @g3 = Garden.create!(name: "Spirit", organic: false)
+
+      @plot4 = @g3.plots.create!(number: 1, size: "Large", direction: "East")
+      @plot5 = @g3.plots.create!(number: 2, size: "Small", direction: "South")
+
+      @plant6 = Plant.create!(name: "Apple", description: "blue", days_to_harvest: 12)
+      @plant7 = Plant.create!(name: "Pear", description: "green", days_to_harvest: 15)
+
+      @PlotPlant6 = PlotPlant.create!(plant_id: @plant7.id, plot_id: @plot5.id)
+      @PlotPlant7 = PlotPlant.create!(plant_id: @plant6.id, plot_id: @plot4.id)
+      @PlotPlant8 = PlotPlant.create!(plant_id: @plant7.id, plot_id: @plot4.id)
+
+      visit "/gardens/#{@g3.id}"
+
+      expect(@plant7.name).to appear_before(@plant6.name)
+
+     end
     end 
   end 
 end 
