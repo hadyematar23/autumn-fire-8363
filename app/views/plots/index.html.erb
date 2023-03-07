@@ -4,12 +4,12 @@
 
 <%@plots.each do |plot|%>
 <div id="plot_<%=plot.id%>">
-  <p> Plot Number: <%=plot.number%> </p> 
+  <h4><p> Plot Number: <%=plot.number%> </p> </h4>
   
     <%plot.plants.each do |plant|%>
     <div id="plot_<%=plot.id%>_plant_<%=plant.id%>">
 
-      <p>Plant Name:<%=plant.name%>
+      <p>Plant Name: <%=plant.name%>
     
       <%=link_to "Remove #{plant.name} from #{plot.number}", 
       "/plots/#{plot.id}/plants/#{plant.id}", 

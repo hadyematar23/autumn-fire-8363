@@ -23,13 +23,16 @@ end
 
  describe "as a visitor" do
   describe "visit plots index page" do 
-    it "See a list of all plot numbers" do
+    it "See a list of all plot numbers and under it see names of all the plots plants" do
     visit "/plots"
-
+      
+  
     within("div#plot_#{@plot1.id}") do
       expect(page).to have_content(@plot1.number)
       expect(page).to have_content(@plant1.name)
       expect(page).to have_content(@plant2.name)
+      expect("23").to appear_before(@plant2.name)
+      expect("23").to appear_before(@plant1.name)
       expect(page).to_not have_content(@plant3.name)
       expect(page).to_not have_content(@plant4.name)
 
@@ -38,6 +41,7 @@ end
     within("div#plot_#{@plot2.id}") do
       expect(page).to have_content(@plot2.number)
       expect(page).to have_content(@plant4.name)
+      expect("45").to appear_before(@plant4.name)
       expect(page).to_not have_content(@plant1.name)
       expect(page).to_not have_content(@plant2.name)
       expect(page).to_not have_content(@plant3.name)
